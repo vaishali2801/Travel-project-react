@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap");
+
+.wanderlust-loading,
+.wanderlust-loading * {
+    box-sizing: border-box;
+}
+
+.wanderlust-loading {
+    --loading-green: #17231a;
+    --loading-lime: #d6ff62;
+    --loading-muted: #a9b2a3;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+    padding: 40px 24px;
+    background:
+        radial-gradient(ellipse at 50% 42%,
+            rgba(77, 104, 57, 0.24),
+            transparent 55%),
+        var(--loading-green);
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    text-align: center;
+}
+
+.loading-content {
+    width: 100%;
+    max-width: 560px;
+    animation: loading-appear 0.7s ease both;
+}
+
+.loading-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.loading-brand-icon {
+    color: var(--loading-lime);
+    font-size: 27px;
+}
+
+.loading-divider {
+    width: 44px;
+    height: 2px;
+    margin: 28px auto;
+    background: var(--loading-lime);
+}
+
+.loading-eyebrow {
+    margin: 0 0 18px;
+    color: var(--loading-lime);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.loading-content h1 {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 7vw, 65px);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+}
+
+.loading-content h1 em {
+    color: var(--loading-lime);
+    font-weight: 500;
+}
+
+.loading-description {
+    max-width: 360px;
+    margin: 20px auto 0;
+    color: var(--loading-muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.loading-spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+.loading-spinner {
+    width: 34px;
+    height: 34px;
+    border: 2px solid rgba(214, 255, 98, 0.2);
+    border-top-color: var(--loading-lime);
+    border-right-color: var(--loading-lime);
+    color: var(--loading-lime);
+    animation-duration: 0.85s;
+}
+
+.loading-status {
+    margin: 17px 0 20px;
+    color: #d0d7ca;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+}
+
+.loading-progress-track {
+    width: min(100%, 250px);
+    height: 2px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.loading-progress-bar {
+    width: 35%;
+    height: 100%;
+    background: var(--loading-lime);
+    animation: loading-progress 1.8s ease-in-out infinite;
+}
+
+.loading-footer {
+    display: block;
+    margin-top: 30px;
+    color: #85917f;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.loading-bottom-decoration {
+    position: absolute;
+    right: 20px;
+    bottom: 24px;
+    left: 20px;
+    color: #849080;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.loading-bottom-decoration span {
+    margin: 0 10px;
+    color: var(--loading-lime);
+}
+
+@keyframes loading-appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loading-progress {
+    0% {
+        transform: translateX(-110%);
+    }
+
+    100% {
+        transform: translateX(390%);
+    }
+}
+
+@media (max-width: 480px) {
+    .wanderlust-loading {
+        padding: 32px 20px 65px;
+    }
+
+    .loading-brand {
+        font-size: 23px;
+    }
+
+    .loading-content h1 {
+        font-size: 43px;
+    }
+
+    .loading-description {
+        font-size: 13px;
+    }
+
+    .loading-bottom-decoration {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+
+    .loading-bottom-decoration span {
+        margin: 0 5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .loading-content,
+    .loading-progress-bar,
+    .loading-spinner {
+        animation: none;
+    }
+}
